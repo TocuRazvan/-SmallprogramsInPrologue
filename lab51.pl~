@@ -1,0 +1,11 @@
+quicksort([X|Xs],Ys):-partite(Xs,X,Stanga,Dreapta),
+    quicksort(Stanga,Ls),
+    quicksort(Dreapta,Rs),
+    append(Ls,[X|Rs],Ys).
+quicksort([],[]).
+partitie([X|Xs],Y,[X|Ls],Rs):-X<=Y,partitie(Xs,Y,Ls,Rs).
+partitie([X|Xs],Y,,Ls,[X|Ls]):-X>Y,partitie(Xs,Y,Ls,Rs).
+partitie([],Y,[],[]).
+append([],Ys,Ys).
+append(X|Xs],Ys,]X|Zs]):-append(Xs,Ys,Zs).
+

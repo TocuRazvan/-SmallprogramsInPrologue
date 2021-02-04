@@ -1,0 +1,3 @@
+elim([],..,[]).
+elim([N,Rest],N,LRez):-elim(Rest,N,LRez).
+elim([M,Rest],N,[M|LRez]):-elim(Rest,N,LRez).

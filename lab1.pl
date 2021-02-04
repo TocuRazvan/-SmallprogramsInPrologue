@@ -1,0 +1,107 @@
+parinte(mihai,andrei).
+parinte(mihai,andi).
+parinte(ion,maria).
+parinte(ion,albert).
+parinte(ana,maria).
+parinte(ana,albert).
+parinte(raul,andra).
+parinte(elena,andra).
+parinte(mihaela,elena).
+parinte(marius,elena).
+parinte(dan,mihnea).
+parinte(dan,cristi).
+parinte(raluca,mihnea).
+parinte(raluca,cristi).
+barbata(mihai).
+barbat(ion).
+barbat(raul).
+barbat(dan).
+femeie(ana).
+femeie(elena).
+femeie(mihaela).
+femeie(raluca).
+barbat(andrei).
+barbat(andi).
+femeie(maria).
+femeie(andra).
+barbat(albert).
+barbat(cristi).
+barbat(mihnea).
+tata(X,Y):-parinte(X,Y),
+    barbat(X).
+fiica(X,Y):-parinte(X,Y),
+   femeie(X).
+fiu(X,Y):-parinte(X,Y),
+    barbat(X).
+bunic(X,Z):-parinte(X,Y),
+    parinte(Y,Z),
+   barbat(X).
+
+bunica(X,Z):-parinte(X,Y),
+    parinte(Y,Z),
+    femeie(X).
+nepot(X,Y):-parinte(Z,Y),
+    parinte(Y,X),
+    barbat(X).
+nepoata(X,Y):-parinte(Z,Y),
+    parinte(Y,X),
+   femeie(X).
+figura(triunghi,albastru,3).
+figura(parat,rosu,4).
+figura(romb,alabastru,4).
+figura(paralelogram,verde,4).
+figura(penagon,rosu,5).
+patrulater(X):-figura(X,Y,4).
+figmm4(X): -figura(X,Y,Z),
+    Z>=4.
+%ce figuri sunt rosii ? figura(X,rosu,Y).;;;
+%ce figuri au 3 laturi figura(X,Y,3).;;;
+%!  CE FIGURI AU 4 LATURI SI SUNT VERZI? figura(X,verde,4).;;;;
+
+copil(peter,9).
+copil(paul,10).
+copil(chris,9).
+copil(susan,9).
+potjuca(X,Y):-copil(X,Z),
+    copil(Y,Z),
+    X\=Y.
+%potjuca(X,Y).;;;;;
+%4
+fumator(toma).
+fumator(dan).
+barbat(gelu).
+barbat(bogdan).
+
+barbat(ion).
+barbat(toma).
+barbat(dan).
+vegetarian(gelu).
+nefumator(X):-barbat(X),
+(   not(fumator(X));
+vegetarian(X)).
+%gagic(X).;;;;
+%5
+drum(bucuresti,ploiesti).
+drum(bucuresti,cheia).
+drum(cheia,sinaia).
+drum(ploiesti,sinaia).
+drum(ploiesti,brasov).
+drum(brasov,carcal).
+estedrum(X,Z):-drum(X,Z);
+drum(Z,X);
+(   drum(X,Y),
+     drum(Y,Z) );
+    (    drum(Z,Y),
+     drum(Y,X)).
+
+%6
+poateciti(ana).
+poateciti(maria).
+inteligent(ana).
+inteligent(maria).
+inteligent(delfin).
+literat(X):-poateciti(X).
+%exista inteligenti care nu sunt literati?
+%!  inteligent(X),\+literat(X).
+
+

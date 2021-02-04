@@ -1,0 +1,14 @@
+%5
+drum(bucuresti,ploiesti).
+drum(bucuresti,cheia).
+drum(cheia,brasov).
+drum(brasov,bucuresti).
+drum(cheia,sinaia).
+drum(ploiesti,sinaia).
+drum(ploiesti,brasov).
+estedrum(X,Z):-drum(X,Z);
+drum(Z,X);
+(   drum(X,Y),
+     drum(Y,Z) );
+    (    drum(Z,Y),
+     drum(Y,X)).
